@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!------setting up the page>setting up the page>< !------>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="description" content="thearter ticket system">
+    <title>Theater Tickets</title>
+    <link href="styles\styles.css" rel="stylesheet" />
+</head>
+<body>
+    <!------making titles >< !------>
+    <h1>Ticket Bookinings</h1>
+    <form id="data">
+        <fieldset>
+            <legend>Fill in form</legend>
+            <p><!------first two string fill ins>< !------>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" >
+            </p>
+            <p>
+                <label for="adress">Arddess:</label>
+                <input type="text" id="adress" >
+            </p>
+    <!------this is the drop dovn list>< !------>
+            <p>
+                <label for="shows">Choose a show:</label>
+
+                <select Id="shows">
+                <option Value=''>Choose show</option>
+                <option Value='79'>Phantom of the opra (£79)</option>
+                <option Value='85'>Hamilton (£85)</option>
+                <option Value='67'>Lion King (£67)</option>
+                <option Value='83'>Miss saigon (£83) </option>
+            </select>
+
+            </p>
+            
+            <p>
+                <label for="seat_no">Number of tickets/Seats:</label>
+                <input type="number" id="seats_no"  min="1" required>
+            </p>
+            
+            <p>
+                <label for="type">Ticket type:</label>
+
+                <select Id="type">
+                <option Value=''>Ticket type</option>
+                <option Value='0'>E-Ticket (free)</option>
+                <option Value='1.50'>collect from box office(£1.50)</option>
+                <option Value='3.99'>Post(£3.99)</option>
+            </select>
+            </p>
+            
+        </fieldset>        
+        <p><!------this is th round up button>< !------>
+            <button type="submit" id="Cost"
+                    name="Cost">Calculate cost</button>
+        </p>
+        
+        <p id="output"></p>
+    
+    </form>
+    <script src="scripts\scripts.js"></script>
+</body>
+</html>

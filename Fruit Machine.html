@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--the description and title of the webpage -->
+<TITLE>Slot Machine</TITLE>
+</head>
+<BODY>
+
+<TR>
+    
+<!--sets up the table and the button for the spin-->
+
+<TD width="99%"><FORM name=slots onsubmit="choose(); return false;">
+
+<TABLE cellSpacing=1 cellPadding=3 width=300 >
+  <TBODY></TBODY><TR>
+  <TH colSpan=2>Slot Machine</TH></TR>
+  <TR><TH >credits: </TH>
+          
+<!--the credit box -->
+
+  <TD >
+  <INPUT readOnly type=box size=5 value=0  name=credits>
+  </TD></TR>
+  <!--the cerdit button -->
+  <TH><INPUT type=submit value="Spin"></TH>
+  <TH><INPUT onclick=credits(); type=button value="Credit">
+  </TH></TR><TR>
+  <TH colSpan=2>&nbsp;</TH></TR><TR>
+  <TD colSpan=2>
+  <HR>
+ </TD></TR>
+  <TR>
+  <TD colSpan=2>
+  <TABLE cellSpacing=5 cellPadding=2 >
+  <TBODY><TR><TD>
+  <IMG src="2.png" name=slot1></TD>
+  <TD><IMG src="1.png" name=slot2></TD>
+  <TD><IMG src="0.png" name=slot3></TD>
+  </TR></TBODY></TABLE>
+  <!--this is the output box-->
+  <INPUT readOnly size=33 name=banner id="output"> </TD></TR><TR>
+  <TD colSpan=2> <HR></TD></TR><TR><TD colSpan=2>
+  <TABLE width="100%" >
+  <TBODY>
+  <TR><TH colSpan=3></TH></TR>
+</TBODY></TABLE></TD></TR></TBODY></TABLE>
+<R></FORM>
+<script>
+//makes the arrary uesd to get the png file names 
+slotitem = new Array('0','1','2');
+document.slots.credit.focus()
+startcredits=0;
+document.slots.credits.value=credits;
+function credits() {
+credits= credits+1;
+document.getElementById("credit_box").innerHTML = credits;
+//writes to the box
+}
+//if you have no credits dosnt allow spins
+function stopplay () {
+if (credits == 0){alert("You have no credits");}
+}
+//alerts you you have no credits
+function choose () {
+if (document.slots.credit.value<1) {alert("You have no credits");
+ break;}
+ //randomly picks a number whic corrlates to a option for each slot
+spin();
+}
+function spin() {
+turns1=10+Math.floor((Math.random() * 10))
+for (a=0;a<turn;a++)
+    {document.slots.slot1.src=""+slotitem[a % 2]+".png"; }
+turns2=10+Math.floor((Math.random() * 10))
+for (b=0;b<turns2;b++)
+    {document.slots.slot2.src=""+slotitem[a % 2]+".png"; }
+turns3=10+Math.floor((Math.random() * 10))
+for (c=0;c<turns3;c++)
+    {document.slots.slot3.src=""+slotitem[a % 2]+".png"; }
+counter++;
+}
+
+ // checks to see if you have won anything 
+function won()   {
+
+if ((document.slots.slot1.src == document.slots.slot2.src) && (document.slots.slot1.src == document.slots.slot3.src))
+
+    {document.slots.banner.value="You won 10 credits";
+     document.slots.credits.value=Math.floor(document.slots.credits.value)+Math.floor(document.slots.credit.value*10); }
+
+else if ((document.slots.slot2.src == document.slots.slot3.src)
+{document.slots.banner.value="You won 5 credits";
+document.slots.credits.value=Math.floor(document.slots.credits.value)+Math.floor(document.slots.credit.value*10); }
+else {document.slots.banner.value="You lost" }
+
+</SCRIPT>
+</BODY>
+</html>
